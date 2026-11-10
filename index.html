@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شهودتي ❤️</title>
+    <!-- إعدادات PWA لتثبيت الموقع كتطبيق على الموبايل -->
+    <meta name="theme-color" content="#ff3366">
+    <link rel="manifest" href='data:application/json;charset=utf-8,{"name":"مفاجأة شهودتي","short_name":"شهودتي","start_url":"./","display":"standalone","background_color":"#fff0f3","theme_color":"#ff3366","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=\x27http://www.w3.org/2000/svg\x27 viewBox=\x270 0 24 24\x27 fill=\x27%23ff3366\x27><path d=\x27M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\x27/></svg>","sizes":"512x512","type":"image/svg+xml"}]}'>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #ff3366;
             --primary-hover: #e60039;
             --bg-color: #fff0f3;
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --text-dark: #2d3748;
-            --text-muted: #718096;
-            --shadow: 0 20px 40px rgba(255, 51, 102, 0.15);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-dark: #1a202c;
+            --text-muted: #4a5568;
+            --shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -24,59 +28,62 @@
         }
 
         body {
-            background: linear-gradient(135deg, #ffe6ed 0%, #fff0f3 100%);
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#ffd1dc 1px, transparent 1px);
+            background-size: 20px 20px;
             color: var(--text-dark);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
         }
 
         .container {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            padding: 35px 25px;
-            border-radius: 25px;
+            padding: 30px 20px;
+            border-radius: 20px;
             box-shadow: var(--shadow);
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid #fff;
         }
 
         .heart-icon {
-            font-size: 50px;
-            color: var(--primary);
-            animation: pulse 1.5s infinite;
-            margin-bottom: 15px;
+            font-size: 45px;
+            margin-bottom: 10px;
+            display: inline-block;
+            animation: beat 1.2s infinite ease-in-out;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.15); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.12); }
         }
 
         h1 {
-            font-size: 24px;
-            color: var(--text-dark);
-            margin-bottom: 10px;
+            font-size: 22px;
             font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
         }
 
-        .date-subtitle {
-            font-size: 13px;
-            color: var(--text-muted);
+        .date-margin {
+            font-size: 12px;
+            color: #718096;
             margin-bottom: 20px;
-            font-weight: 600;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #edf2f7;
         }
 
         .welcome-msg {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-muted);
             margin-bottom: 25px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .login-box {
@@ -86,129 +93,134 @@
         }
 
         input {
-            padding: 14px 18px;
-            border: 2px solid #ffd1dc;
-            border-radius: 14px;
-            font-size: 16px;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 15px;
             outline: none;
-            transition: all 0.3s ease;
-            background: #fff;
+            transition: border-color 0.2s;
             text-align: center;
+            width: 100%;
         }
 
         input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(255, 51, 102, 0.1);
         }
 
         button {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 14px;
-            border-radius: 14px;
-            font-size: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s;
-            box-shadow: 0 8px 20px rgba(255, 51, 102, 0.3);
+            transition: background 0.2s;
         }
 
         button:hover {
             background: var(--primary-hover);
-            transform: translateY(-2px);
         }
 
         .error-msg {
             color: #e53e3e;
-            font-size: 14px;
-            margin-top: 10px;
+            font-size: 13px;
             display: none;
+            margin-top: 10px;
         }
 
         .hidden-content {
             display: none;
             text-align: right;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .love-story-title {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--primary);
-            margin-bottom: 15px;
             font-weight: 700;
+            margin-bottom: 15px;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
 
         .story-text {
-            font-size: 15px;
-            line-height: 1.8;
+            font-size: 14px;
+            line-height: 1.7;
             color: var(--text-dark);
             margin-bottom: 20px;
             background: #fff;
             padding: 15px;
             border-radius: 12px;
-            border-right: 4px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
         .timer-container {
             background: #fff;
             padding: 15px;
-            border-radius: 14px;
-            margin-top: 15px;
-            border: 1px solid #ffe0eb;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #edf2f7;
         }
 
         .timer-title {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .timer-digits {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--primary);
             direction: ltr;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container" id="mainContainer">
+    <div class="container">
         <div class="heart-icon">❤️</div>
         <h1>مفاجأة لعيون شهودتي</h1>
-        <p class="date-subtitle">تاريخ اليوم: 11 / 11 / 2026</p>
-        <p class="welcome-msg">عملت لك حاجة بسيطة كدا على قدك، اكتبي كلمة السر عشان تدخلي وتشوفي اللي جواها.</p>
+        <div class="date-margin">التاريخ: 11 نوفمبر 2026</div>
+        
+        <p class="welcome-msg">عملتلك حاجة بسيطة كدا على قدك، اكتبي كلمة السر عشان يفتح معاكي.</p>
 
         <div class="login-box" id="loginBox">
             <input type="password" id="passwordInput" placeholder="اكتبي كلمة السر يا شهودتي">
             <button onclick="checkPassword()">فتح الهدية ✨</button>
-            <p class="error-msg" id="errorMsg">كلمة السر مش صح، جرب تاني يا قلبي.</p>
+            <p class="error-msg" id="errorMsg">كلمة السر مش مظبوطة، جربي تاني</p>
         </div>
 
         <div class="hidden-content" id="hiddenContent">
-            <div class="love-story-title">رحلة حبنا وبدايتها 🥰 ∞</div>
+            <div class="love-story-title">
+                <span>رحلة حبنا وبدايتها</span>
+                <span>🥰 ∞</span>
+            </div>
+            
             <div class="story-text">
-                يا حب حياتي، كل حاجة حلوة حواليا بقت أحسن بوجودك. أنا كتبت الكلام ده من قلبي ليكي، عشان تفضلي فكراها دايماً إنك ملكة بيتي ودنيتي، وكل اللي تتمنيه هيكون تحت رجلك يا أغلى الناس عندي. ربنا ما يحرمني منك ولا من ضحكتك أبداً.
+                يا أغلى ما عندي، حبيت أعملك حاجة بسيطة تفضل ذكرى حلوة بيننا. وجودك في حياتي هو أجمل حاجة حصلتلي، ومعاكي بحس إن الدنيا لسه بخير. ربنا يخليكي ليا وما يحرمنيش من وجودك ولا من صوتك اللي بيطمن قلبي.
             </div>
 
             <div class="timer-container">
-                دلوقتي ومع بعض من تاريخ 25/10/2025:
-                <div class="timer-title">المدة بالتفصيل:</div>
-                <div class="timer-digits" id="timer">جاري حساب الوقت...</div>
+                <div class="timer-title">مر على بدايتنا سوا من يوم 25/10/2025:</div>
+                <div class="timer-digits" id="timer">جاري الحساب...</div>
             </div>
         </div>
     </div>
 
     <script>
+        // تفعيل الـ PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('data:text/javascript,console.log("PWA Registered");').catch(() => {});
+        }
+
         function checkPassword() {
-            const input = document.getElementById('passwordInput').value;
+            const input = document.getElementById('passwordInput').value.trim();
             const errorMsg = document.getElementById('errorMsg');
             const loginBox = document.getElementById('loginBox');
             const hiddenContent = document.getElementById('hiddenContent');
@@ -223,7 +235,6 @@
         }
 
         function startTimer() {
-            // تاريخ البداية: 25 أكتوبر 2025 الساعة 00:00:00
             const startDate = new Date('2025-10-25T00:00:00');
 
             function update() {
