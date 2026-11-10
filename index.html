@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شهودتي ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff3366;
+            --primary-hover: #e60039;
+            --bg-color: #fff0f3;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+            --shadow: 0 20px 40px rgba(255, 51, 102, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe6ed 0%, #fff0f3 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .heart-icon {
+            font-size: 50px;
+            color: var(--primary);
+            animation: pulse 1.5s infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 24px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .date-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .welcome-msg {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .login-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 14px 18px;
+            border: 2px solid #ffd1dc;
+            border-radius: 14px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #fff;
+            text-align: center;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255, 51, 102, 0.1);
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+            box-shadow: 0 8px 20px rgba(255, 51, 102, 0.3);
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .error-msg {
+            color: #e53e3e;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .hidden-content {
+            display: none;
+            text-align: right;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .love-story-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .story-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            border-right: 4px solid var(--primary);
+        }
+
+        .timer-container {
+            background: #fff;
+            padding: 15px;
+            border-radius: 14px;
+            margin-top: 15px;
+            border: 1px solid #ffe0eb;
+        }
+
+        .timer-title {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .timer-digits {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            direction: ltr;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div class="heart-icon">❤️</div>
+        <h1>مفاجأة لعيون شهودتي</h1>
+        <p class="date-subtitle">تاريخ اليوم: 11 / 11 / 2026</p>
+        <p class="welcome-msg">عملت لك حاجة بسيطة كدا على قدك، اكتبي كلمة السر عشان تدخلي وتشوفي اللي جواها.</p>
+
+        <div class="login-box" id="loginBox">
+            <input type="password" id="passwordInput" placeholder="اكتبي كلمة السر يا شهودتي">
+            <button onclick="checkPassword()">فتح الهدية ✨</button>
+            <p class="error-msg" id="errorMsg">كلمة السر مش صح، جرب تاني يا قلبي.</p>
+        </div>
+
+        <div class="hidden-content" id="hiddenContent">
+            <div class="love-story-title">رحلة حبنا وبدايتها 🥰 ∞</div>
+            <div class="story-text">
+                يا حب حياتي، كل حاجة حلوة حواليا بقت أحسن بوجودك. أنا كتبت الكلام ده من قلبي ليكي، عشان تفضلي فكراها دايماً إنك ملكة بيتي ودنيتي، وكل اللي تتمنيه هيكون تحت رجلك يا أغلى الناس عندي. ربنا ما يحرمني منك ولا من ضحكتك أبداً.
+            </div>
+
+            <div class="timer-container">
+                دلوقتي ومع بعض من تاريخ 25/10/2025:
+                <div class="timer-title">المدة بالتفصيل:</div>
+                <div class="timer-digits" id="timer">جاري حساب الوقت...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const errorMsg = document.getElementById('errorMsg');
+            const loginBox = document.getElementById('loginBox');
+            const hiddenContent = document.getElementById('hiddenContent');
+
+            if (input === '25102025') {
+                loginBox.style.display = 'none';
+                hiddenContent.style.display = 'block';
+                startTimer();
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        }
+
+        function startTimer() {
+            // تاريخ البداية: 25 أكتوبر 2025 الساعة 00:00:00
+            const startDate = new Date('2025-10-25T00:00:00');
+
+            function update() {
+                const now = new Date();
+                const diff = Math.abs(now - startDate);
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / 1000 / 60) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+
+                document.getElementById('timer').innerHTML = 
+                    `${days} يوم - ${hours} ساعة - ${minutes} دقيقة - ${seconds} ثانية`;
+            }
+
+            update();
+            setInterval(update, 1000);
+        }
+    </script>
+</body>
+</html>
